@@ -1,0 +1,48 @@
+spring:
+  application:
+    name: fruscia
+  datasource:
+    url: jdbc:mysql://m0s.net.bird:3306/frusciapp
+    username: frusciapp
+    password: frusciapp
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
+blackout:
+  parent:
+    datasource:
+      repository: club.fruscia.backend.repository # JPA repositories package
+      model: club.fruscia.backend.modelDB # JPA models package
+  # !!REQUIRED!! JWT configuration
+  jwt:
+    secret: 4bd8f130de889ba037ec4043e273b75a # JWT secret key (should be base64-encoded in production)
+
+  # CORS configuration
+  cors:
+    allow-credentials: false # Allow credentials (cookies) in CORS requests [false]
+    allowed-headers: # Allowed headers in CORS requests [*]
+      - "*"
+    allowed-methods: # Allowed HTTP methods in CORS requests [*]
+      - "*"
+    allowed-origins: # Allowed origins for CORS (use specific domains in production) [*]
+      - "*"
+
+  # Security filter chain rules
+  filterchain:
+    allowed: # Endpoints accessible without authentication []
+      - "/everyone/**"
+
+  # OpenAPI/Swagger configuration
+  openapi:
+    enabled: true # Enable Swagger/OpenAPI documentation [true]
+    title: "Fruscia API" # API title
+    description: "Backend di fruscia.club" # API description
+    version: "1.0.0" # API version
+    paths-to-match: # !!REQUIRED!! Paths to include in OpenAPI documentation
+      - "/api/**"
