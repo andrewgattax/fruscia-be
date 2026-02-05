@@ -227,12 +227,10 @@ public class Partita {
 
     }
 
-    public void scartaCarte(Partecipante p, List<String> carteIds) {
+    public void scartaCarte(Partecipante p, List<Integer> carteIds) {
         List<Carta> carteDaRimuovere = new ArrayList<>();
-        for (String cartaId : carteIds) {
-            p.getMano().stream()
-                    .filter(c -> c.getId().equals(cartaId))
-                    .forEach(carteDaRimuovere::add);
+        for (Integer cartaId : carteIds) {
+            carteDaRimuovere.add(p.getMano().get(cartaId));
         }
         p.getMano().removeAll(carteDaRimuovere);
         if (isAParte) {

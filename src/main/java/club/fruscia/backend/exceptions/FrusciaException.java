@@ -1,10 +1,12 @@
 package club.fruscia.backend.exceptions;
 
+import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
+@Getter
 public class FrusciaException extends RuntimeException {
 
-    HttpStatus status;
+    private final HttpStatus status;
 
     public FrusciaException(String message, HttpStatus status) {
         super(message);
@@ -13,5 +15,6 @@ public class FrusciaException extends RuntimeException {
 
     public FrusciaException(String message) {
         super(message);
+        this.status = HttpStatus.INTERNAL_SERVER_ERROR;
     }
 }

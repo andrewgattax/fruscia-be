@@ -34,6 +34,8 @@ public class FrusciaUserDetailService implements UserDetailsService {
         return BlackoutUserPrincipal.builder()
                 // Default Blackout fields
                 .id(authAccount.getId())
+                .firstName(authAccount.getFirstName())
+                .lastName(authAccount.getLastName())
                 .userId(utente.getId())
                 .authorities(authorities)
                 .username(username)

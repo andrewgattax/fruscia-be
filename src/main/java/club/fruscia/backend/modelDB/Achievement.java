@@ -8,6 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 @Getter
 @Setter
+@Table(name = "achievement")
 public class Achievement {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

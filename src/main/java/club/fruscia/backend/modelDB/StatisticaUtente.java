@@ -3,6 +3,7 @@ package club.fruscia.backend.modelDB;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "statistica-utente")
 public class StatisticaUtente {
 
     @Id

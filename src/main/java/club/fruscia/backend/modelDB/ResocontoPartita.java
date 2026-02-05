@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 @Entity
+@Table(name = "resoconto-partita")
 public class ResocontoPartita {
 
     @Id

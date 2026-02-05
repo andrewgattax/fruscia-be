@@ -2,17 +2,10 @@ spring:
   application:
     name: fruscia
   datasource:
-    url: jdbc:mysql://m0s.net.bird:3306/frusciapp
+    url: jdbc:mariadb://m0s.net.bird:3306/frusciapp
     username: frusciapp
     password: frusciapp
-    driver-class-name: com.mysql.cj.jdbc.Driver
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQL8Dialect
+    driver-class-name: org.mariadb.jdbc.Driver
 
 blackout:
   parent:
@@ -21,7 +14,7 @@ blackout:
       model: club.fruscia.backend.modelDB # JPA models package
   # !!REQUIRED!! JWT configuration
   jwt:
-    secret: 4bd8f130de889ba037ec4043e273b75a # JWT secret key (should be base64-encoded in production)
+    secret: 4bd8f130de889ba037ec4043e273b75a278h3d78923g7fdv23867r32v # JWT secret key (should be base64-encoded in production)
 
   # CORS configuration
   cors:
@@ -36,7 +29,7 @@ blackout:
   # Security filter chain rules
   filterchain:
     allowed: # Endpoints accessible without authentication []
-      - "/everyone/**"
+      - "/utente/registra"
 
   # OpenAPI/Swagger configuration
   openapi:
